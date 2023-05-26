@@ -1,21 +1,30 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
-function ItemCount() {
-    const [contador,setContador] = useState(0)
-  
-  const sumarUno =() => {
-    setContador(contador +1)
-  }
-  const restarUno = () => {
-    setContador(contador -1)
-  }
+
+
+export default function App() {
+  const[mostrar, setMostrar] = useState(true);
   return (
     <div>
-      <button onClick={sumarUno}>+</button>
-      <h3>{contador}</h3>
-      <button onClick={restarUno}>-</button>
+      <button onClick={() => setMostrar(false)}>Dejar de mostrar</button>
+    {mostrar ? <MouseColor /> : null}
     </div>
-  )
+  );
 }
-
-export default ItemCount
+function MouseColor (){
+  const[color,setColor] = useState("orange");
+  // insertar dato del dom a react
+  useEffect(() =>{
+    function onMouseMove(event) {
+      if(event.clientX < window.innerWidth / 2) {
+        setColor("orange");
+      }else {
+        setColor(blue);
+      }
+    }
+    window.addEventListener("mousemove", onMouseMove);
+  });
+  return <div style={{height:"100vh", background: color}} />;
+}
+// movimiento de mouse viene del Dom y no de react tramitando data del Dom AL REACT
+// permite el dinamismo
