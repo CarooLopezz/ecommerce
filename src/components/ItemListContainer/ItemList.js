@@ -1,5 +1,5 @@
 // componentes presentacionales
-import Item from "../ItemDetailContainer/Item";
+
 
 const ItemList = ({products}) => {
     
