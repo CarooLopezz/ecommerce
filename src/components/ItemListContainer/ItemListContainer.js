@@ -11,13 +11,14 @@ const ItemListContainer = () => {
     useEffect(() => {
         setLoading(true);
 
-    fetch("data.json")
+    fetch("../data.json")
     .then((res) => res.json())
-    .then((data) => setArrayList(data))
+    .then((data) => setArrayList(data.products))
     .catch((err) => console.error(err))
     .finally(() =>setLoading(false))
 },[])
 
+console.log(arrayList);
 
     return(
     <div className="listContainer">

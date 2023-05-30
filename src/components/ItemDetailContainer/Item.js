@@ -2,12 +2,12 @@ import React from 'react';
 
 const Item= ({product}) => {
   return (
-      <div className="item">
-        <img src={product.image} alt="product image" />
+      <div >
+        <img  src={product.imagen} alt="product imagen" width="145px" />
         <div>
-      <h3>{product.title}</h3>
-      <p>Price ${product.price}</p>
-      <button className="button">View details</button>
+      <h3>{product.nombre}</h3>
+      <p class="precio">Precio ${product.precio}</p>
+      <button className="button">Comprar</button>
     </div>
     </div>
   )
