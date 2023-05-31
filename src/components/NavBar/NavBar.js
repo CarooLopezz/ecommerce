@@ -1,29 +1,44 @@
 import React from "react";
-import CartWidget from "../CartWidget/CartWidget";
-import Nav from 'react-bootstrap/Nav';
-const NavBar = () => {
+import {Link , useParams} from "react-router-dom";
+
+function NavBar() {
+    const( id ) = useParams();
     return (
         <nav>
-            <h3>Ecommerce</h3>
-                <Nav defaultActiveKey="/home" as="ul">
-                <Nav.Item as="li">
-                    <Nav.Link href="/home">Shop</Nav.Link>
-                </Nav.Item>
-                <Nav.Item as="li">
-                    <Nav.Link eventKey="link-1">Q&A</Nav.Link>
-                </Nav.Item>
-                <Nav.Item as="li">
-                    <Nav.Link eventKey="link-2">Login</Nav.Link>
-                </Nav.Item>
-                </Nav>
-
             <div>
-                <button>Celulares</button>
-                <button>Tablets</button>
-                <button>Notebooks</button>
-            </div>
-            <CartWidget/>
+                
+                <Link to ="/item:id/1">
+                    <button>Buzo marrón</button>
+                </Link>
+                </div>
+                <div>
+                <Link to ="/item:id/2">
+                    <button>Buzo gris</button>
+                </Link>
+                </div>
+                <div>
+                <Link to ="/item:id/3">
+                    <button>Buzo rosado</button>
+                </Link>
+                </div>
+                <div>
+                <Link to ="/item:id/4">
+                    <button>Remera blanca</button>
+                </Link>
+                </div>
+                <div>
+                <Link to ="/item:id/5">
+                    <button>Pantalón naranja</button>
+                </Link>
+                </div>
+                <div>
+                <Link to ="/item:id/6">
+                    <button>Estiletos negros</button>
+                </Link>
+                </div>
+                
+
         </nav>
-    )
+    );
 }
-export default NavBar
+export default NavBar;

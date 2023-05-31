@@ -1,5 +1,5 @@
 // componentes presentacionales
-import Item from "../ItemDetailContainer/Item.js";
+import Item from "../ItemDetailContainer/ItemDetailContainer.js";
 
 const ItemList = ({products}) => {
     

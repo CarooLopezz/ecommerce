@@ -1,12 +1,36 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import "bootstrap/dist/css/bootstrap.min.css";
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ItemListContainer from "../src/components/ItemListContainer/ItemListContainer";
 import Cart from "./components/cart";
-import ItemDetailContainer  from './components/ItemDetailContainer/Item.js';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
+import ItemList from "./components/ItemListContainer/ItemList";
+
+
+// Import the functions you need from the SDKs you need
+import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDDGDN6fFSF_TU0pfLtR0g-SVA7R4AfB_w",
+  authDomain: "ecommerce-384ad.firebaseapp.com",
+  projectId: "ecommerce-384ad",
+  storageBucket: "ecommerce-384ad.appspot.com",
+  messagingSenderId: "199533417675",
+  appId: "1:199533417675:web:9bc5cfe840181a881ab74e",
+  measurementId: "G-DXW2Y03CKY"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
   
 
 
@@ -20,8 +44,8 @@ const router = createBrowserRouter([
     element: <Cart/>,
   },
   {
-    path: "/category/:id",
-    element: <ItemListContainer/>,
+    path: "/products",
+    element: <ItemList/>,
   },
   {
     path:"/item/:id",
