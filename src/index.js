@@ -40,17 +40,10 @@ const router = createBrowserRouter([
     element: <ItemListContainer/>,
   },
   {
-    path: "/cart",
-    element: <Cart/>,
+    path: "/category/:category",
+    element: <ItemListContainer/>,
   },
-  {
-    path: "/products",
-    element: <ItemList/>,
-  },
-  {
-    path:"/item/:id",
-    element:<ItemDetailContainer/>
-  },
+  
   
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -4,8 +4,6 @@ import Loader from "../Loader";
 import ItemList from "./ItemList";
 
 
-
-
 const ItemListContainer = () => {
 
     const [arrayList, setArrayList] = useState([]);

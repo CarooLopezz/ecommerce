@@ -1,42 +1,32 @@
 import React from "react";
-import {Link , useParams} from "react-router-dom";
-
+import {Link } from "react-router-dom";
 function NavBar() {
-    const( id ) = useParams();
     return (
         <nav>
-            <div>
-                
-                <Link to ="/item:id/1">
+            <>
+                <div>
+                <Link to ="/category/buzos">
                     <button>Buzo marrón</button>
-                </Link>
-                </div>
-                <div>
-                <Link to ="/item:id/2">
                     <button>Buzo gris</button>
-                </Link>
-                </div>
-                <div>
-                <Link to ="/item:id/3">
                     <button>Buzo rosado</button>
                 </Link>
                 </div>
                 <div>
-                <Link to ="/item:id/4">
+                <Link to ="/category/remera">
                     <button>Remera blanca</button>
                 </Link>
                 </div>
                 <div>
-                <Link to ="/item:id/5">
+                <Link to ="/category/pantalon">
                     <button>Pantalón naranja</button>
                 </Link>
                 </div>
                 <div>
-                <Link to ="/item:id/6">
+                <Link to ="/category/estiletos">
                     <button>Estiletos negros</button>
                 </Link>
                 </div>
-                
+            </>
 
         </nav>
     );
