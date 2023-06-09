@@ -1,18 +1,15 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ItemListContainer from "../src/components/ItemListContainer/ItemListContainer";
-import Cart from "./components/cart";
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
 import ItemList from "./components/ItemListContainer/ItemList";
-
-
+import {Link, useParams} from "react-router-dom";
 // Import the functions you need from the SDKs you need
 import { getAnalytics } from "firebase/analytics";
 import { initializeApp } from "firebase/app";
+import Item from "./components/ItemList/Item";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -30,7 +27,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
   
 
 
@@ -40,12 +37,15 @@ const router = createBrowserRouter([
     element: <ItemListContainer/>,
   },
   {
-    path: "/category/:category",
+    path: "/category/:id",
     element: <ItemListContainer/>,
   },
-  
-  
+  {
+  path:"/item/:id",
+  element:<Item/>
+  },
 ]);
+<route exact path="/"></route>
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -54,8 +54,3 @@ root.render(
   </React.StrictMode>
   
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

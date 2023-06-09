@@ -1,27 +1,36 @@
-
-// componentes presentacionales
-import React from "react";
-import Loader from "../Loader";
-import ItemList from "./ItemList";
+import React, { useEffect, useState } from "react";
+import ItemList from "../../products";
 
 
-const ItemDetailContainer = () => {
-
-    const [ product, setProduct ] = useState({});
+function ItemListContainer({categoryId, isCategoryRoute }) {
+    const [products, setProducts] = useState([]);
+    
 
     useEffect(() => {
-    fetch("../data.json")
-    .then((response) => response.json())
-    .then((result => {
-    const products =result.find(({product}) =><div key={product.id}><Item product={product}/></div>){
-        return(
-            {product}
-        )
-    }
-        
-    .catch((err) => console.error(err))
-    .finally(() =>setLoading(false))
-},[])
-}
-        
-export default ItemDetailContainer;
+    
+    
+    const productsPromise = new Promise((resolve, reject) =>
+    setTimeout(() => resolve(Products) ,2000)
+    );
+
+    productsPromise
+    then((response) => {
+        if(isCategoryRoute) {
+            const productsFiltered = response.filter(
+                (product) => product.category === categoryId
+            );
+            setProducts(productsFiltered);
+            } else {
+                setProducts(response);
+            }
+        })
+        .catch((err) =>console.log(err));
+    }, [categoryId]);
+
+    return(
+    <div >
+        <ItemList products={products}/>
+    </div>
+    )
+};
+export default ItemListContainer
